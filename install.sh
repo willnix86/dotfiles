@@ -610,9 +610,7 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true;ok
 running "Disable press-and-hold for keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;ok
 
-running "Set a blazingly fast keyboard repeat rate"
-defaults write NSGlobalDomain KeyRepeat -int 2
-defaults write NSGlobalDomain InitialKeyRepeat -int 10;ok
+# ss
 
 running "Set language and text formats (english/US)"
 defaults write NSGlobalDomain AppleLanguages -array "en"
@@ -1043,6 +1041,34 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false;ok
 killall cfprefsd
 
 ###############################################################################
+# Set Up VS Code Command Line and Install Extensions
+###############################################################################
+
+cat << EOF >> ~/.bash_profile
+export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+EOF
+
+source ~/.bash_profile
+
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension dbaeumer.jshint
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension dracula-theme.theme-dracula
+code --install-extension esbenp.prettier-vscode
+code --install-extension formulahendry.auto-close-tag
+code --install-extension HookyQR.beautify
+code --install-extension ms-python.python
+code --install-extension oderwat.indent-rainbow
+code --install-extension PeterJausovec.vscode-docker
+code --install-extension ritwickdey.live-sass
+code --install-extension ritwickdey.LiveServer
+code --install-extension robertohuertasm.vscode-icons
+code --install-extension robinbentley.sass-indented
+code --install-extension shinnn.stylelint
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension ssZignd.html-css-class-completion
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 bot "OK. Note that some of these changes require a logout/restart to take effect. Killing affected applications (so they can reboot)...."
@@ -1051,6 +1077,5 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
   "iCal" "Terminal"; do
   killall "${app}" > /dev/null 2>&1
 done
-
 
 bot "Woot! All done. Kill this terminal and launch iTerm"
