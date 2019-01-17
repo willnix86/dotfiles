@@ -365,7 +365,7 @@ sudo systemsetup -setwakeonnetworkaccess off
 sudo defaults write /Library/Preferences/com.apple.loginwindow GuestEnabled -bool false
 
 # Automatically lock the login keychain for inactivity after 6 hours
-#security set-keychain-settings -t 21600 -l ~/Library/Keychains/login.keychain
+#security set-keychain-settings -t 21600 -l ~/Library/Keychains/login.keycha     cin
 
 # Destroy FileVault key when going into standby mode, forcing a re-auth.
 # Source: https://web.archive.org/web/20160114141929/http://training.apple.com/pdf/WP_FileVault2.pdf
@@ -821,8 +821,8 @@ defaults write com.apple.Safari AutoOpenSafeDownloads -bool false;ok
 running "Allow hitting the Backspace key to go to the previous page in history"
 defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebKit2BackspaceKeyNavigationEnabled -bool true;ok
 
-running "Hide Safari’s bookmarks bar by default"
-defaults write com.apple.Safari ShowFavoritesBar -bool false;ok
+# running "Hide Safari’s bookmarks bar by default"
+# defaults write com.apple.Safari ShowFavoritesBar -bool false;ok
 
 running "Hide Safari’s sidebar in Top Sites"
 defaults write com.apple.Safari ShowSidebarInTopSites -bool false;ok
@@ -864,7 +864,7 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" -string "@\\
 
 running "Display emails in threaded mode, sorted by date (oldest at the top)"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "DisplayInThreadedMode" -string "yes"
-defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "yes"
+defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortedDescending" -string "no"
 defaults write com.apple.mail DraftsViewerAttributes -dict-add "SortOrder" -string "received-date";ok
 
 running "Disable inline attachments (just show the icons)"
@@ -1048,25 +1048,25 @@ cat << EOF >> ~/.bash_profile
 export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 EOF
 
-source ~/.bash_profile
+source ~/.bash_profile;ok
 
-code --install-extension DavidAnson.vscode-markdownlint
-code --install-extension dbaeumer.jshint
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension dracula-theme.theme-dracula
-code --install-extension esbenp.prettier-vscode
-code --install-extension formulahendry.auto-close-tag
-code --install-extension HookyQR.beautify
-code --install-extension ms-python.python
-code --install-extension oderwat.indent-rainbow
-code --install-extension PeterJausovec.vscode-docker
-code --install-extension ritwickdey.live-sass
-code --install-extension ritwickdey.LiveServer
-code --install-extension robertohuertasm.vscode-icons
-code --install-extension robinbentley.sass-indented
-code --install-extension shinnn.stylelint
-code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension ssZignd.html-css-class-completion
+code --install-extension DavidAnson.vscode-markdownlint;ok
+code --install-extension dbaeumer.jshint;ok
+code --install-extension dbaeumer.vscode-eslint;ok
+code --install-extension dracula-theme.theme-dracula;ok
+code --install-extension esbenp.prettier-vscode;ok
+code --install-extension formulahendry.auto-close-tag;ok
+code --install-extension HookyQR.beautify;ok
+code --install-extension ms-python.python;ok
+code --install-extension oderwat.indent-rainbow;ok
+code --install-extension PeterJausovec.vscode-docker;ok
+code --install-extension ritwickdey.live-sass;ok
+code --install-extension ritwickdey.LiveServer;ok
+code --install-extension robertohuertasm.vscode-icons;ok
+code --install-extension robinbentley.sass-indented;ok
+code --install-extension shinnn.stylelint;ok
+code --install-extension streetsidesoftware.code-spell-checker;ok
+code --install-extension ssZignd.html-css-class-completion;ok
 
 ###############################################################################
 # Kill affected applications                                                  #
